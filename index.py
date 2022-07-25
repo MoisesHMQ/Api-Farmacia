@@ -57,7 +57,7 @@ def drogaraia():
         if remedios_liquido["remedio"] == comprimidos["remedio"]:
             return {"status": "Produto já cadastrado."}
     comprimidos = {
-        "codigo": str(uuid.uuid4()),
+        "id": str(uuid.uuid4()),
         "remedio": comprimidos["remedio"]
     }
     remedios.append(comprimidos)
@@ -74,7 +74,7 @@ def excluir_produto():
     body_excluir = request.json
     print(remedios)
     for estoque in remedios:
-        if estoque["codigo"] == body_excluir["codigo"]:
+        if estoque["id"] == body_excluir["id"]:
             remedios.remove(estoque)
             return body_excluir
 
